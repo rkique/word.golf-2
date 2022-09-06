@@ -1,0 +1,25 @@
+
+#wordspace {
+    font-family: sans-serif;
+    width: 60vw;
+    margin-bottom: 7vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.link {
+    height: 8vh;
+    font-size: 1.3vw;
+    min-width: 13vw;
+    max-width: 17vw;
+    text-align: left;
+
+    border:none;
+    outline:none;
+    background-color: transparent;
+}
+
+.link--starting{
+    color: grey;
+}

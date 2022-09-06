@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+<link rel="stylesheet" href="static/css/style.css">
+
+<div id="wordspace"></div>
+<script src="static/XML.js"></script>
+<script src="static/links.js"></script>
+
+<script>
+    data = JSON.parse('{{data|tojson|safe}}');
+    let results = data['results']
+    console.log(results)
+    renderLinks(results)
+    activateLinks()
+</script>
+
+
