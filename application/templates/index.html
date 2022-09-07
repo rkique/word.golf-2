@@ -2,16 +2,24 @@
 <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
 <link rel="stylesheet" href="static/css/style.css">
 
+<div id="information"></div>
+<div id="global">
 <div id="wordspace"></div>
+<div id="prompts"></div>
+</div>
 <script src="static/XML.js"></script>
 <script src="static/links.js"></script>
+<script src="static/information.js"></script>
+<script src="static/prompts.js"></script>
 
 <script>
     data = JSON.parse('{{data|tojson|safe}}');
+    let prompt = data['prompt']
+    let prompts = data['prompts']
     let results = data['results']
-    console.log(results)
-    renderLinks(results)
+
+    renderInformation(prompt)
+    renderPrompts(prompts)
+    renderLinks(prompt, results)
     activateLinks()
 </script>
-
-

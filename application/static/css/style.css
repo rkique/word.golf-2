@@ -1,18 +1,41 @@
+html {
+    font-family: sans-serif;
+}
+
+span, p{
+    font-size: 1.3vw;
+}
+
+#global {
+    display: flex;
+    justify-content:space-around;
+}
+#information {
+    width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+}
 
 #wordspace {
-    font-family: sans-serif;
-    width: 60vw;
+    padding: 2em 2em;
+    width: 70vw;
     margin-bottom: 7vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
+#prompts {
+    padding: 2em 2em;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 .link {
     height: 8vh;
-    font-size: 1.3vw;
-    min-width: 13vw;
-    max-width: 17vw;
+    min-width: 15vw;
+    max-width: 20vw;
     text-align: left;
 
     border:none;
@@ -22,4 +45,12 @@
 
 .link--starting{
     color: grey;
+}
+
+.link--disabled{
+    pointer-events: none;
+}
+
+.link--target {
+    color: rgb(0, 198, 0);
 }

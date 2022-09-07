@@ -20,11 +20,16 @@ def txt_to_dict(path):
 def similarity(w1,w2, wv):
     return wv.similarity(w1=w1, w2=w2)
 
+def get_prompts(l):
+    p = [w.split(',') for w in l]
+    return p
 
 WV = KeyedVectors.load('application/models/word2vec_2.3.kv')
 PRECOMPUTED = txt_to_dict("application/precalculated/word2vec_2.3_200.txt")
-print(PRECOMPUTED['dog'])
+PROMPTS = get_prompts(txt_to_list("application/static/text/prompts.txt"))
 
+
+print(PROMPTS[1])
 def get_curve(word, target):
     results = PRECOMPUTED[word]
     def similarity_to_target(x): 
