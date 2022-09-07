@@ -7,15 +7,6 @@ import random
 
 #session['data'] will be the SSoT
 
-@app.route('/')
-def index():
-    prompt = PROMPTS[0]
-    start = prompt[0]
-    target = prompt[1]
-    results = get_curve(start, target)
-    session['data'] = json.dumps({'prompt': prompt,'prompts': PROMPTS[0:9], 'results':results})
-    return render_template('index.html', data=json.loads(session.get('data')))
-
 def jump(start):
     _data = json.loads(session.get('data'))
     target = _data['prompt'][1]
@@ -24,7 +15,24 @@ def jump(start):
     session['data'] = json.dumps(_data)
     return json.dumps(_data)
 
+def shift_to(i):
+    prompt = PROMPTS[i]
+    results = get_curve(prompt[0], prompt[1])
+    return json.dumps({'i': i, 'prompt': prompt,'prompts': PROMPTS[i:9], 'results':results})
+
+@app.route('/')
+def index():
+    session['i'] = 0
+    session['data'] = shift_to(session['i'])
+    return render_template('index.html', data=json.loads(session.get('data')))
+
 @app.route('/', methods=['POST'])
 def index_post():
-    session['data'] = jump(request.form['word'])
+    try:
+        if request.form['end'] is not None:
+            session['i'] = session['i']+1
+            session['data'] = shift_to(session['i'])
+            print(session['data'])
+    except:
+        session['data'] = jump(request.form['word'])
     return make_response(session.get('data'))

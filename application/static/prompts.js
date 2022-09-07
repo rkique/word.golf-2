@@ -6,6 +6,7 @@ function makePromptTag(promptText) {
 
 function renderPrompts(promptTexts){
     let prompts = document.getElementById("prompts")
+    clearChildren(prompts)
     promptTexts.map(pT => prompts.append(makePromptTag(pT)))
 }
 

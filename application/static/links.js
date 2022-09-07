@@ -16,28 +16,20 @@ function makeStartLink(prompt, word){
     return startLink
 }
 
-function disableLinks(){
-    links = document.getElementsByClassName("link")
-    links.map(link => link.classList.add("link--disabled"))
-}
-
-function clearChildren(element){
-    while (element.lastChild) {
-        element.removeChild(element.lastChild);
-    }
-}
-
-function sessionEnded(prompt){
-    ws_texts = ws_to_text()
-    return ws_texts[0] == prompt[1]
-}
 
 function maintainLinks(prompt){    
     if(sessionEnded(prompt)){
-    alert("you win!")
     disableLinks()
+    saySessionEnded()
 }}
 
+function saySessionEnded(){
+    resp = sendAndReceiveXML("end=true")
+    renderInformation(resp.prompt)
+    renderPrompts(resp.prompts)
+    renderLinks(resp.prompt, resp.results)
+    activateLinks()
+}
 
 function renderLinks(prompt, results){
     let wordspace = document.getElementById("wordspace")
@@ -62,7 +54,7 @@ function activateLinks(){
 }
 
 function postWord(word) {
-    resp = sendAndReceiveXML(word)
+    resp = sendAndReceiveXML("word=" + word)
     renderLinks(resp.prompt, resp.results)
     activateLinks()
     }

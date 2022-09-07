@@ -28,8 +28,6 @@ WV = KeyedVectors.load('application/models/word2vec_2.3.kv')
 PRECOMPUTED = txt_to_dict("application/precalculated/word2vec_2.3_200.txt")
 PROMPTS = get_prompts(txt_to_list("application/static/text/prompts.txt"))
 
-
-print(PROMPTS[1])
 def get_curve(word, target):
     results = PRECOMPUTED[word]
     def similarity_to_target(x): 
@@ -40,4 +38,4 @@ def get_curve(word, target):
     results__biased.insert(0,word)
     return results__biased
 
-print(get_curve("dog", "doorknob"))
+

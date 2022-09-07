@@ -6,5 +6,6 @@ function makePromptInfo(prompt) {
 
 function renderInformation(prompt){
     let information = document.getElementById("information")
+    clearChildren(information)
     information.append(makePromptInfo(prompt))
 }

@@ -1,8 +1,8 @@
-function sendAndReceiveXML(word) {
+function sendAndReceiveXML(message) {
     let xhttp = new XMLHttpRequest();
     xhttp.open("POST", '/', false);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("word=" + word);
+    xhttp.send(message);
     resp = {}
     try {
         console.log(JSON.parse(xhttp.responseText))
