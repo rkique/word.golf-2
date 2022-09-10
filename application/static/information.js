@@ -1,6 +1,6 @@
 function makePromptInfo(prompt) {
     let p = document.createElement("p");
-    p.innerText = "go from " + prompt
+    p.innerText = prompt
     return p
 }
 

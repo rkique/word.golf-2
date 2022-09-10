@@ -10,6 +10,7 @@ function clearChildren(element){
     }
 }
 
+
 function sessionEnded(prompt){
     ws_texts = ws_to_text()
     return ws_texts[0] == prompt[1]

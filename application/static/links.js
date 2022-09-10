@@ -4,6 +4,10 @@ function makeLink(prompt,word) {
     let link = document.createElement("button");
     let span = document.createElement("span")
     span.innerText = word;
+    /*if (word.length < 20){span.style.fontSize = "1.5em"}
+    if (word.length < 12){span.style.fontSize = "2.5em"}
+    if (word.length < 10){span.style.fontSize = "3em"}
+    if (word.length < 8){span.style.fontSize = "3.75em"}*/
     link.appendChild(span)
     link.className = "link"
     if(prompt[1] == word){link.className = "link link--target"}
@@ -23,12 +27,24 @@ function maintainLinks(prompt){
     saySessionEnded()
 }}
 
+function tallyScreen(prompts, i, jumpsA){
+    total = jumpsA.reduce((a, b) => a + b, 0)
+    renderInformation(`you finished today's prompts in ${total} jumps!`)
+    renderPrompts(prompts,i, jumpsA)
+}
+
+/*this part is very important*/
 function saySessionEnded(){
-    resp = sendAndReceiveXML("end=true")
-    renderInformation(resp.prompt)
-    renderPrompts(resp.prompts)
+    resp = sendAndReceiveXML(`end=true`)
+    if(resp.hasOwnProperty('session_done')){
+        tallyScreen(resp.prompts, resp.i, resp.jumpsA)
+    }
+    else {
+    renderInformation("go from " + resp.prompt)
+    renderPrompts(resp.prompts,resp.i, resp.jumpsA)
     renderLinks(resp.prompt, resp.results)
     activateLinks()
+    }
 }
 
 function renderLinks(prompt, results){
