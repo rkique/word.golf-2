@@ -30,6 +30,7 @@ function maintainLinks(prompt){
 function tallyScreen(prompts, i, jumpsA){
     total = jumpsA.reduce((a, b) => a + b, 0)
     renderInformation(`you finished today's prompts in ${total} jumps!`)
+    localStorage.setItem('total', total)
     renderPrompts(prompts,i, jumpsA)
 }
 

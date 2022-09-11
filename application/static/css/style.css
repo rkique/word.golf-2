@@ -1,14 +1,57 @@
 html {
     font-family: sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-span, p{ font-size: 1.3em; }
+.switch {
+    color: var(--text-color);
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+span, p{ 
+    font-size: 1.3em;
+ }
+
+ .link {
+    color: var(--text-color);
+    height: 8vh;
+    min-width: 15vw;
+    max-width: 20vw;
+    text-align: left;
+
+    border:none;
+    outline:none;
+    background-color: transparent;
+}
+
+.link--starting{
+    color: var(--grayed-out-color);
+}
+
+.link--disabled{
+    pointer-events: none;
+    color: var(--grayed-out-color);
+}
+
+.link--target {
+    color: rgb(0, 198, 0);
+}
+
+.prompt {
+    color: var(--text-color);
+}
+
+.prompt--done {
+    color: var(--grayed-out-color);
+}
 
 #global {
     display: flex;
     justify-content:space-around;
 }
-
 
 #information {
     width: 80vw;
@@ -41,34 +84,3 @@ span, p{ font-size: 1.3em; }
 transform: scale(0.99);
 }
   
-
-.link {
-    height: 8vh;
-    min-width: 15vw;
-    max-width: 20vw;
-    text-align: left;
-
-    border:none;
-    outline:none;
-    background-color: transparent;
-}
-
-.link--starting{
-    color: grey;
-}
-
-.link--disabled{
-    pointer-events: none;
-}
-
-.link--target {
-    color: rgb(0, 198, 0);
-}
-
-.prompt {
-    color: black;
-}
-
-.prompt--done {
-    color: grey;
-}

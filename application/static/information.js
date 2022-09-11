@@ -9,3 +9,4 @@ function renderInformation(prompt){
     clearChildren(information)
     information.append(makePromptInfo(prompt))
 }
+
