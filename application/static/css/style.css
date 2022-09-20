@@ -11,6 +11,10 @@ html {
     border: none;
 }
 
+.footer {
+    color: var(--text-color);
+  }
+  
 span, p{ 
     font-size: 1.3em;
  }

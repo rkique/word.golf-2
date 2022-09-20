@@ -17,6 +17,7 @@
 <script src="static/prompts.js"></script>
 
 <script>
+    const MS_DAY = 86400000
     data = JSON.parse('{{data|tojson|safe}}');
     let prompt = data['prompt']
     let i = data['i']
@@ -26,11 +27,13 @@
     renderPrompts(prompts,i)
     renderLinks(prompt, results)
     activateLinks()
-    if(Math.round(Date.parse(new Date()) / 86400000) != Date.parse(localStorage.getItem("lastComplete")) / 86400000){
-    if(localStorage.getItem("total") !== null){
-        prompts = JSON.parse(localStorage.getItem("total"))
-        renderPrompts(prompts.length, 5, prompts)
-        disableLinks()  
-    }
+    if(Math.round(Date.parse(new Date()) / MS_DAY) == Math.round(Date.parse(localStorage.getItem("lastComplete")) / MS_DAY)){
+        freezeScreen()
     }
 </script>
+
+<footer class="ma0 mid-gray fixed absolute right-1 bottom-0">
+    <!--<img class="voyager" src="../static/images/voyager.png">-->
+    <p class="f5 db tc ma1 footer "> © the new expeditionary society
+    </p>
+  </footer>
