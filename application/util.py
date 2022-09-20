@@ -36,6 +36,7 @@ def get_curve(word, target):
     results__biased = results[0:27]
     results__biased.sort()
     results__biased.insert(0,word)
-    return results__biased
+    results = results__biased
+    return results
 
 

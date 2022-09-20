@@ -10,7 +10,7 @@ function makeLink(prompt,word) {
     if (word.length < 8){span.style.fontSize = "3.75em"}*/
     link.appendChild(span)
     link.className = "link"
-    if(prompt[1] == word){link.className = "link link--target"}
+    if(prompt[1] == word){link.className = "link link--target rainbow_text_animated"}
     return link
 }
 
@@ -30,8 +30,9 @@ function maintainLinks(prompt){
 function tallyScreen(prompts, i, jumpsA){
     total = jumpsA.reduce((a, b) => a + b, 0)
     renderInformation(`you finished today's prompts in ${total} jumps!`)
-    localStorage.setItem('total', total)
-    renderPrompts(prompts,i, jumpsA)
+    localStorage.setItem("lastComplete", new Date())
+    localStorage.setItem('total', JSON.stringify(jumpsA))
+    renderPrompts(prompts,i, jumpsA, false)
 }
 
 /*this part is very important*/

@@ -6,6 +6,7 @@ import random
 import datetime
 
 
+PCOUNT = 5
 #session['data'] will be the SSoT
 
 def jump(start):
@@ -24,14 +25,14 @@ def elapsed(d):
 
 def shift_to(i):
     elapsed_time = elapsed(datetime.datetime.today())
-    prompt = PROMPTS[i+9*elapsed_time]
+    prompt = PROMPTS[i+PCOUNT*elapsed_time]
     results = get_curve(prompt[0], prompt[1])
     return json.dumps({
         'jumpsA': session.get('jumpsA'),
         'jumps': 0,
         'i': i,
         'prompt': prompt,
-        'prompts': PROMPTS[9*elapsed_time:9*elapsed_time+9],
+        'prompts': PROMPTS[PCOUNT*elapsed_time:PCOUNT*elapsed_time+PCOUNT],
         'results':results})
 
 #there isn't a jumpsA at this point...
@@ -56,7 +57,7 @@ def index_post():
             save_activity()
             session['i'] = session['i']+1
             session['data'] = shift_to(session['i'])
-            if (session['i'] == 9):
+            if (session['i'] == PCOUNT):
                 return make_response("session_done" 
                 + session.get('data'))
     except:

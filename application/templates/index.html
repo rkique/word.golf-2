@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+<link rel="stylesheet" href="static/css/style_animated.css">
 <link rel="stylesheet" href="static/css/style.css">
 <link rel="stylesheet" href="static/css/style_mobile.css">
 <script src="static/dark_mode.js"></script>
@@ -25,7 +26,11 @@
     renderPrompts(prompts,i)
     renderLinks(prompt, results)
     activateLinks()
+    if(Math.round(Date.parse(new Date()) / 86400000) != Date.parse(localStorage.getItem("lastComplete")) / 86400000){
     if(localStorage.getItem("total") !== null){
-        disableLinks()
+        prompts = JSON.parse(localStorage.getItem("total"))
+        renderPrompts(prompts.length, 5, prompts)
+        disableLinks()  
+    }
     }
 </script>
