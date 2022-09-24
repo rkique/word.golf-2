@@ -9,20 +9,69 @@ html {
     background-color: transparent;
     outline: none;
     border: none;
+    font-size: 2.3em;
 }
 
-.footer {
-    color: var(--text-color);
-  }
-  
+.switch--outlined {
+    width: 12em;
+    margin-top: 1.5em;
+    font-size: 2em;
+    padding: 0.5em 1em;
+    outline: 1px solid var(--grayed-out-color);
+}
+
+.help {
+    background-color: var(--background-color);
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 10vh;
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 80vw;
+    height: 80vh;
+    outline: 1px solid var(--grayed-out-color);
+    display: flex;
+    justify-content: center;
+}
+
+.help_container {
+    width: 45em;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 2em 2em;
+    flex-direction: column;
+    align-items: center;
+}
+
+.help-text {
+    margin-top: 2em;
+}
+.help-text p{
+    margin: 1em;
+}
+.--grayed-out {
+    color: var(--grayed-out-color)
+}
+.--small {
+    font-size: 1.2em;
+}
+
 span, p{ 
-    font-size: 1.3em;
+    font-size: 1.5em;
  }
 
- button {
+button {
     outline: 1px solid var(--border-color);
  }
- button:hover{
+
+button {transition: 30ms ease-out;}
+button:not(.greyed-out):hover {
+transform: scale(0.99);
+}
+  
+
+ .link:hover{
     color: var(--hover-color);
     outline: 1px solid var(--hover-color);
  }
@@ -60,15 +109,25 @@ span, p{
     color: var(--grayed-out-color);
 }
 
+
 #global {
     display: flex;
     justify-content:space-around;
 }
 
+#settings{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#settings *+* {
+    margin: 1em 2em;
+}
+
 #information {
     width: 80vw;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 #wordspace {
@@ -90,9 +149,3 @@ span, p{
     flex-direction: column;
     align-items: flex-end;
 }
-
-#wordspace button {transition: 30ms ease-out;}
-#wordspace button:not(.greyed-out):hover {
-transform: scale(0.99);
-}
-  
