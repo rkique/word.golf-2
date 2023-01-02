@@ -28,20 +28,21 @@ function maintainLinks(prompt){
 }}
 
 function freezeScreen(){
-    if (localStorage.getItem('screen') == null) {
-    localStorage.setItem('screen', document.body.innerHTML)
-    } else {
-        console.log("freezing screen")
-        document.body.innerHTML = localStorage.getItem('screen')
-    }
+    screen = new XMLSerializer().serializeToString(document)
+    localStorage.setItem('screen', screen)
 }
+
+function showScreen(){
+    document.body.innerHTML = localStorage.getItem('screen')
+}
+
+//if first session_done, then freeze screen, otherwise, show screen
 function tallyScreen(prompts, i, jumpsA){
     total = jumpsA.reduce((a, b) => a + b, 0)
     renderInformation(`you finished today's prompts in ${total} jumps!`)
     localStorage.setItem("lastComplete", new Date())
     localStorage.setItem('total', JSON.stringify(jumpsA))
     renderPrompts(prompts,i, jumpsA, false)
-    // freeze it here until open
     freezeScreen()
 }
 
