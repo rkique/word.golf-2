@@ -1,6 +1,6 @@
 function makePromptInfo(prompt) {
     let p = document.createElement("p");
-    p.innerText = prompt
+    p.innerHTML = prompt
     return p
 }
 
