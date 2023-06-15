@@ -8,7 +8,6 @@ Word golf (word.golf) is a language sport played by moving between static embedd
 <img width="1414" alt="Screenshot 2023-06-15 at 10 11 44 AM" src="https://github.com/rkique/word.golf-2/assets/46641307/c9d9081c-c41b-43db-bf5b-027c3dc9025e">
 
 It is built on a modified set of Word2Vec embeddings, efficiently stored as a gensim KeyedVector. 
-Other optimizations include storing the static embeddings as text. 
 
 ### Tech
 The frontend uses Jinja templating, and the Tachyons CSS framework. The backend is Flask and Gensim.
