@@ -10,7 +10,7 @@ Neighbors are determined by cosine similarity to the target vector, biased towar
 
 It is built on a modified set of Word2Vec embeddings, efficiently stored as a gensim KeyedVector. 
 
-### Tech
+### How it was made
 At the basic level, the frontend uses Jinja templating and the Tachyons CSS framework. However, HTML DOM manipulation is handled by Javascript functions provided in the static folder. The backend follows the Flask Application Factory, and uses Flask `Session` to persist across client reloads. 
 
 The raw 100 closest neighbors for each word are stored in a text file; at each render, get_curve uses the KeyedVector instance to bias neighbors towards the target vector.
