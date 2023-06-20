@@ -1,4 +1,5 @@
-# word.golf-2
+# word golf: a sport played with the meanings of words
+
 This is a revised implementation of word golf with `XMLHttpRequest()`. By sending and receiving JSON, the app dynamically renders screens without having to reload the page.
 
 ### What is word golf?
