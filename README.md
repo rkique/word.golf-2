@@ -9,9 +9,10 @@ Neighbors are determined by cosine similarity to the target vector, biased towar
 
 <img width="1414" alt="Screenshot 2023-06-15 at 10 11 44 AM" src="https://github.com/rkique/word.golf-2/assets/46641307/c9d9081c-c41b-43db-bf5b-027c3dc9025e">
 
-It is built on a modified set of Word2Vec embeddings, efficiently stored as a gensim KeyedVector. 
 
 ### How it was made
+Word golf is built on a modified set of [word2vec](http://jalammar.github.io/illustrated-word2vec/) embeddings, efficiently stored as a gensim KeyedVector. 
+
 At the basic level, the frontend uses Jinja templating and the Tachyons CSS framework. However, HTML DOM manipulation is handled by Javascript functions provided in the static folder. The backend follows the Flask Application Factory, and uses Flask `Session` to persist across client reloads. 
 
 The revised version uses `XMLHttpRequest()`. By sending and receiving JSON instead of entire templates, the app dynamically renders screens without having to reload the page. It also improves the app's load time.
